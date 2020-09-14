@@ -29,7 +29,7 @@ namespace API.Controllers
         [Route("{id}")]
         [ProducesResponseType(200, Type = typeof(PessoaVO))]
         [ProducesResponseType(404)]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Get(string id)
         {
             var pessoa = _pessoaService.FindById(id);
@@ -41,7 +41,7 @@ namespace API.Controllers
         [Route("new")]
         [ProducesResponseType(200, Type = typeof(PessoaVO))]
         [ProducesResponseType(400)]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Post([FromBody] PessoaVO pessoa)
         {
             if (pessoa == null) return BadRequest();
@@ -52,7 +52,7 @@ namespace API.Controllers
         [Route("ord/{pessoaId}/{ordemId}/{time}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Post(string pessoaId, string ordemId, int time)
         {
             if (pessoaId == null || ordemId == null) return BadRequest();
@@ -63,7 +63,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(200, Type = typeof(PessoaVO))]
         [ProducesResponseType(400)]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Put([FromBody]PessoaVO pessoa)
         {
             if (pessoa == null) return BadRequest();
@@ -72,7 +72,7 @@ namespace API.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(200)]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Delete(string id)
         {
             _pessoaService.Delete(id);

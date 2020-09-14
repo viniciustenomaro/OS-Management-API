@@ -29,6 +29,7 @@ namespace API
         
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<MySqlContext>(p => p.UseMySql(Configuration.GetConnectionString("MySqlConnectionString"),
                 builder => builder.MigrationsAssembly("API")));
 
@@ -79,17 +80,23 @@ namespace API
 
             services.AddScoped<PessoaService>();
             services.AddScoped<PessoaRepository>();
+
             services.AddScoped<LoginService>();
             services.AddScoped<LoginRepository>();
+
             services.AddScoped<OrdemService>();
             services.AddScoped<OrdemRepository>();
+
             services.AddScoped<FileService>();
+
+            services.AddScoped<AuthorizeAttribute>();
 
             services.AddControllers();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MySqlContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

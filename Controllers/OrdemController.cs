@@ -19,7 +19,7 @@ namespace API.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(List<OrdemVO>))]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Get()
         {
             return Ok(_ordemService.FindAll());
@@ -28,7 +28,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(OrdemVO))]
         [ProducesResponseType(404)]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Get(string id)
         {
             var result = _ordemService.FindById(id);
@@ -45,7 +45,7 @@ namespace API.Controllers
         [Route("new")]
         [ProducesResponseType(200, Type = typeof(OrdemVO))]
         [ProducesResponseType(409)]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Post([FromBody] OrdemVO ordem)
         {
             var result = _ordemService.Create(ordem);
@@ -57,7 +57,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("func")]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Post([FromBody]string ordemId, string pesId, int time)
         {
             _ordemService.AddPessoa(ordemId, pesId, time);
@@ -66,7 +66,7 @@ namespace API.Controllers
 
         [HttpPut]
         [Route("update")]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Put([FromBody]OrdemVO ordem)
         {
             _ordemService.Update(ordem);
@@ -75,7 +75,7 @@ namespace API.Controllers
 
         [HttpDelete]
         [Route("delete/{num}")]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public IActionResult Delete(int num)
         {
             _ordemService.Delete(num);

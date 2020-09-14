@@ -17,8 +17,6 @@ namespace API.Services
             worksheet.Cell(currentRow, 3).Value = "Salario";
             worksheet.Cell(currentRow, 4).Value = "Custo";
 
-
-            List<Pessoa> mainList = new List<Pessoa>();
             foreach (var item in pessoas)
             {
                 currentRow++;
